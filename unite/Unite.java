@@ -6,7 +6,7 @@ public enum Unite {
 	BOMBE("Bombe",0,2,2,100,3),
 	DEMINEUR("Démineur",3,1,1,160,3),
 	ECLAIREUR("Eclaireur",5,1,1,100,5),
-	GENERAL("Génerale",3,4,2,700,1),
+	GENERAL("Générale",3,4,2,700,1),
 	ESPION("Espion",3,2,1,500,1),
 	CAPORAL("Caporale",2,3,2,360,5),
 	SABOTEUR("Saboteur",2,3,1,500,1),
@@ -38,6 +38,22 @@ public enum Unite {
 	public int getLimit() {return limit;}
 	
 	public int getPortee() {return portee;}
+	
+	public boolean estDetruit(Unite ennemi) 
+	{
+		switch(this.getName()) 
+		{
+		case "Démineur": return ennemi.getName()=="Bombe";
+		
+		case "Espion": return ennemi.getName()=="Générale";
+		
+		case "saboteur": return ennemi.getName()=="Char d'assaut";
+		
+		default: return false;
+		}
+		
+		
+	}
 
 
 }

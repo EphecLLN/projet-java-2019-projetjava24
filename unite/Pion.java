@@ -30,14 +30,25 @@ private Unite soldat;
 	
 	public void combat(Unite ennemi) 
 	{
-		
-		if(soldat.getStrength() >= ennemi.getStrength()) {
-			//si soldat a une force inférieur ou égale à son ennemi il meurt
-		}else {
-			//si sa force est plus grande il gagne
+		if(!soldat.estDetruit(ennemi)) 
+		{
+			if(soldat.getStrength() >= ennemi.getStrength()) 
+			{
+				//si soldat a une force inférieur ou égale à son ennemi il meurt
+			}
+			else 
+			{
+				//si sa force est plus grande il gagne
+			}
 		}
-		
-	}
+		else 
+		{
+			//Une unité spéciale est morte
+		}
+	}	
+}
+	
+	
 	
 
-}
+
