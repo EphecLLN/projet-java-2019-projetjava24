@@ -26,6 +26,8 @@ public enum Unite {
 		this.limit = limit;
 		
 	}
+	
+	//les getters
 
 	public String getName() {return nom;}
 
@@ -38,6 +40,8 @@ public enum Unite {
 	public int getLimit() {return limit;}
 	
 	public int getPortee() {return portee;}
+	
+	//méthode de différenciation en combat
 	
 	public boolean estDetruit(Unite ennemi) 
 	{
@@ -53,6 +57,24 @@ public enum Unite {
 		}
 		
 		
+	}
+	
+	//méthode déplacement
+	
+	public void monte(int choixDeplacer) {/*GUI event*/
+		System.out.println("a avancé de "+choixDeplacer+" cases");
+	}
+	
+	public void descend(int choixDeplacer) {/*GUI event*/
+		System.out.println("a reculé de "+choixDeplacer+" cases");
+	}
+	
+	public void tourneDroite(int choixDeplacer) {/*GUI event*/
+		System.out.println("a été "+choixDeplacer+" cases sur sa droite");
+	}
+	
+	public void tourneGauche(int choixDeplacer) {/*GUI event*/
+		System.out.println("a été "+choixDeplacer+" cases sur sa gauche");
 	}
 
 
