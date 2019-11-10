@@ -82,6 +82,8 @@ private int PM;//point de Mouvement
 		if(PM == 0) {System.out.println(soldat.getName()+" ne peut plus bouger.");} 
 		else {System.out.println("Il ne vous reste plus que "+ PM +" Point de Mouvement");}
 	}
+	
+	public void reset() {this.PM = 6;}
 }
 	
 	
