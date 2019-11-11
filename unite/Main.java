@@ -4,12 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		//à implémenter
-		/*
-		 * setJoueur("PPPanda1014");
-		 * setJoueur("Frodon001")
-		 * 
-		 * 
-		 * */
+		
 	
 	
 	}

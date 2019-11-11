@@ -37,7 +37,7 @@ public class Banque {
 		return new Pion(nom);
 	}
 	
-	public void generer() {addSolde(100);}
+	public void generer() {addSolde(200);}
 
 
 }

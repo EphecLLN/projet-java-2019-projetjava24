@@ -13,7 +13,7 @@ public class Joueur {
 	{
 		this.pseudo = pseudo;
 		this.solde = 0;
-		this.setCouleur(Color.BLUE);
+		this.setCouleur(Color.GREEN);
 	}
 
 	public int getSolde() {

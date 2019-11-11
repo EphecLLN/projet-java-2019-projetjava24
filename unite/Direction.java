@@ -8,7 +8,7 @@ public enum Direction {
 	GAUCHE("a été sur la gauche de ");
 	
 	private String msg;
-	
+	//ajout d'un message
 	Direction(String msg)
 	{
 		this.msg = msg;

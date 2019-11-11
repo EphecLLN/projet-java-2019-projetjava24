@@ -25,13 +25,6 @@ private int PM;//point de Mouvement
 	
 	public String getNom() {return soldat.getName();}
 
-	/*public int getDeplace() {return soldat.getDeplace();}
-
-	public int getStrength() {return soldat.getStrength();}
-
-	public int getPrice() {return soldat.getPrice();}
-	
-	public int getLimit() {return soldat.getLimit();}*/
 	
 	public void combat(Unite ennemi) 
 	{

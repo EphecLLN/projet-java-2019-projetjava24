@@ -27,7 +27,7 @@ public enum Unite {
 		
 	}
 	
-	//les getters
+	
 
 	public String getName() {return nom;}
 
@@ -62,19 +62,19 @@ public enum Unite {
 	//méthode déplacement
 	
 	public void monte(int choixDeplacer) {/*GUI event*/
-		System.out.println("a avancé de "+choixDeplacer+" cases");
+		System.out.println(Direction.HAUT.getMsg() +choixDeplacer+" cases");
 	}
 	
 	public void descend(int choixDeplacer) {/*GUI event*/
-		System.out.println("a reculé de "+choixDeplacer+" cases");
+		System.out.println(Direction.BAS.getMsg()+choixDeplacer+" cases");
 	}
 	
 	public void tourneDroite(int choixDeplacer) {/*GUI event*/
-		System.out.println("a été "+choixDeplacer+" cases sur sa droite");
+		System.out.println(Direction.DROITE.getMsg()+choixDeplacer+" cases");
 	}
 	
 	public void tourneGauche(int choixDeplacer) {/*GUI event*/
-		System.out.println("a été "+choixDeplacer+" cases sur sa gauche");
+		System.out.println(Direction.GAUCHE.getMsg()+choixDeplacer+" cases");
 	}
 
 
