@@ -1,3 +1,5 @@
+package unite;
+
 
 import Java.util.*;
 
@@ -5,7 +7,7 @@ public class Plateau {
   
    private int nbLig;
    private int nbCol;
-   private string [][] grille;
+   private string [10][10] grille; //case du plateau référencé par les coordonné ligne/collone
    
 public grille(int n, int p){
    nbLig = n;
@@ -14,6 +16,8 @@ public grille(int n, int p){
    
    }
 
-
+//elements visuel du plateau
+  
+  
 
 }
