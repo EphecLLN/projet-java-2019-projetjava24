@@ -59,23 +59,7 @@ public enum Unite {
 		
 	}
 	
-	//méthode déplacement
 	
-	public void monte(int choixDeplacer) {/*GUI event*/
-		System.out.println(Direction.HAUT.getMsg() +choixDeplacer+" cases");
-	}
-	
-	public void descend(int choixDeplacer) {/*GUI event*/
-		System.out.println(Direction.BAS.getMsg()+choixDeplacer+" cases");
-	}
-	
-	public void tourneDroite(int choixDeplacer) {/*GUI event*/
-		System.out.println(Direction.DROITE.getMsg()+choixDeplacer+" cases");
-	}
-	
-	public void tourneGauche(int choixDeplacer) {/*GUI event*/
-		System.out.println(Direction.GAUCHE.getMsg()+choixDeplacer+" cases");
-	}
 
 
 }

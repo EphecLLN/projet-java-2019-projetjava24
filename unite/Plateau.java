@@ -1,43 +1,54 @@
 package unite;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Plateau{
 	
-	private int nbLig;
-	private int nbCol;
-	private int[][] grille;
+	private int[] cases = {0,1,2,3,4,5,6,7,8,9};
 
-   /*Il faudra utiliser des array via ArrayList()
-    * 
-    * Car int[][] n'est pas modifiable
-    * 
-    * ou alors on le passe en paramètre
-    * 
-    * */
+	
+	private Map<String, Integer> position;
    
-   public Plateau(int l,int c) 
+   // arriver à limiter le nombre de cases et à faire les getters setters en conséquences
+   public Plateau() 
    {
-	   nbLig = l;
-	   nbCol =c;
-	   grille = this.getGrille();
+	   this.position = new HashMap<>();
    }
-    public String getCase() 
-    {
-    	
-    	return "";
-    }
-    
-    public void setGrille(int l, int c) {
-    	
-    
-    }
-    
-    public int[][] getGrille()
-    {
-    	return grille;
-    }
    
+   public void setPosition(String name,int cases) 
+   {
+	   position.put(name,cases);
+   }
+   
+   public int getPosition(String name) 
+   {
+	   return position.get(name);
+	   
+   }
+   
+   public void monte(int choixDeplacer,String name, int cases) {/*GUI event*/
+		System.out.println(Direction.HAUT.getMsg() +choixDeplacer+" cases");
+		position.replace(name, cases + (10*choixDeplacer)) ;
+		//monte d'une disaine par unité de choixdeplacer
+	}
+	
+	public void descend(int choixDeplacer,String name, int cases) {/*GUI event*/
+		System.out.println(Direction.BAS.getMsg()+choixDeplacer+" cases");
+		position.replace(name, cases - (10*choixDeplacer)) ;
+		//descend d'une disaine par unité de choixdeplacer
+	}
+	
+	public void tourneDroite(int choixDeplacer,String name, int cases) {/*GUI event*/
+		System.out.println(Direction.DROITE.getMsg()+choixDeplacer+" cases");
+		position.replace(name, cases + choixDeplacer) ;
+	}
+	
+	public void tourneGauche(int choixDeplacer,String name, int cases) {/*GUI event*/
+		System.out.println(Direction.GAUCHE.getMsg()+choixDeplacer+" cases");
+		position.replace(name, cases - choixDeplacer) ;
+	}
+    
 
 //elements visuel du plateau
   

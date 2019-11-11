@@ -14,13 +14,13 @@ public class Main {
 	}
 	
 	
-	public Pion setBataillon(Unite[] set) 
+	public Pion setBataillon(Unite[] set, int cases) 
 	{
 		for(Unite unite: set) 
 		{
-			return new Pion(unite);
+			return new Pion(unite,cases++);
 		}
-		return new Pion(Unite.DRAPEAU);
+		return new Pion(Unite.DRAPEAU,cases);
 		
 	}
 

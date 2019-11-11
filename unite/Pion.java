@@ -1,26 +1,25 @@
 package unite;
 
+
 public class Pion {
 
 private Unite soldat;
+private Plateau position;
+
 
 private int PM;//point de Mouvement
 	/* Les points Mouvement serviront a déterminé la limite de déplacements
 	 * possibles par tour */
 
-
-
 	
 
-	public Pion(Unite nom) 
+	public Pion(Unite nom,int cases) 
 	{
-		this.soldat =nom;
-		this.PM = soldat.getDeplace();
+		soldat =nom;
+		PM = soldat.getDeplace();
+		position.setPosition(getNom(), cases);
+		
 	}
-	
-	
-	
-	
 	
 	
 	public String getNom() {return soldat.getName();}
@@ -51,16 +50,16 @@ private int PM;//point de Mouvement
 		if(choixDeplacer <= PM)
 		{
 			switch(d) {
-			case HAUT:soldat.monte(choixDeplacer);
+			case HAUT:position.monte(choixDeplacer,getNom(), position.getPosition(this.getNom()));
 			fatigue(choixDeplacer);
 				break;
-			case BAS:soldat.descend(choixDeplacer);
+			case BAS:position.descend(choixDeplacer,getNom(), position.getPosition(this.getNom()));
 			fatigue(choixDeplacer);
 				break;
-			case DROITE:soldat.tourneDroite(choixDeplacer);
+			case DROITE:position.tourneDroite(choixDeplacer,getNom(), position.getPosition(this.getNom()));
 			fatigue(choixDeplacer);
 				break;
-			case GAUCHE:soldat.tourneGauche(choixDeplacer);
+			case GAUCHE:position.tourneGauche(choixDeplacer,getNom(), position.getPosition(this.getNom()));
 			fatigue(choixDeplacer);
 				break;
 			}
@@ -77,6 +76,8 @@ private int PM;//point de Mouvement
 	}
 	
 	public void reset() {this.PM = 6;}
+	
+	
 }
 	
 	
