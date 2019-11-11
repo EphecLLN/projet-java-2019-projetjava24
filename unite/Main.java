@@ -19,10 +19,6 @@ public class Main {
 		return new Joueur(pseudo1);
 	}
 	
-	public Banque setBanque(Joueur player) 
-	{
-		return new Banque(player);
-	}
 	
 	public Pion setBataillon(Unite[] set) 
 	{

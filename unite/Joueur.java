@@ -2,7 +2,7 @@ package unite;
 
 import java.awt.Color;
 
-public class Joueur {
+public class Joueur implements Bank{
 	
 	private String pseudo;
 	private int solde;
@@ -35,6 +35,17 @@ public class Joueur {
 
 	public String getPseudo() {
 		return pseudo;
+	}
+	
+	public Pion acheter(Unite nom) 
+	{
+		this.subSolde(solde, nom.getPrice());
+		return new Pion(nom);
+	}
+	
+	public void generer() 
+	{
+		this.addSolde(solde, 100);
 	}
 
 
