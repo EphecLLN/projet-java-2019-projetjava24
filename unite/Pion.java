@@ -23,6 +23,7 @@ private int PM;//point de Mouvement
 	
 	
 	public String getNom() {return soldat.getName();}
+	
 
 	
 	public void combat(Unite ennemi) 
@@ -51,23 +52,23 @@ private int PM;//point de Mouvement
 		{
 			switch(d) {
 			case HAUT:position.monte(choixDeplacer,getNom(), position.getPosition(this.getNom()));
-			fatigue(choixDeplacer);
+			
 				break;
 			case BAS:position.descend(choixDeplacer,getNom(), position.getPosition(this.getNom()));
-			fatigue(choixDeplacer);
+			
 				break;
 			case DROITE:position.tourneDroite(choixDeplacer,getNom(), position.getPosition(this.getNom()));
-			fatigue(choixDeplacer);
+			
 				break;
 			case GAUCHE:position.tourneGauche(choixDeplacer,getNom(), position.getPosition(this.getNom()));
-			fatigue(choixDeplacer);
+			
 				break;
 			}
 		}
 		
 	}
 	
-	public void fatigue(int choixDeplacer) 
+	/*public void fatigue(int choixDeplacer) 
 	{
 		PM -= choixDeplacer;
 		
@@ -75,7 +76,7 @@ private int PM;//point de Mouvement
 		else {System.out.println("Il ne vous reste plus que "+ PM +" Point de Mouvement");}
 	}
 	
-	public void reset() {this.PM = 6;}
+	public void reset() {this.PM = soldat.getDeplace();}*/
 	
 	
 }

@@ -37,10 +37,10 @@ public class Joueur implements Bank{
 		return pseudo;
 	}
 	
-	public Pion acheter(Unite nom) 
+	public Pion acheter(Unite nom,int cases) 
 	{
 		this.subSolde(solde, nom.getPrice());
-		return new Pion(nom);
+		return new Pion(nom,cases);
 	}
 	
 	public void generer() 
