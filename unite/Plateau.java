@@ -3,6 +3,12 @@ package unite;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author florent janssens
+ *
+ */   
+
+
 public class Plateau{
 	
 	private int[] cases = {0,1,2,3,4,5,6,7,8,9};
@@ -15,6 +21,7 @@ public class Plateau{
    {
 	   this.position = new HashMap<>();
    }
+   
    
    public void setPosition(String name,int cases) 
    {
@@ -49,9 +56,24 @@ public class Plateau{
 		position.replace(name, cases - choixDeplacer) ;
 	}
     
+	public void genLac() {
+		setPosition("Lac", 22);
+		setPosition("Lac", 23);
+		setPosition("Lac", 32);
+		setPosition("Lac", 33);
+		setPosition("Lac", 28);
+		setPosition("Lac", 29);
+		setPosition("Lac", 38);
+		setPosition("Lac", 39);
+	}
 
-//elements visuel du plateau
-  
+
+/*
+ * position.remove("Bombe");
+ * lors du lancenment du jeu, disposer les unités une a une
+ * aux cases respectives 
+ * 
+ */
   
 
 }
