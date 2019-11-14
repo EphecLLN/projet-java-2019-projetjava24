@@ -1,79 +1,126 @@
 package unite;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author florent janssens
  *
  */   
 
-
-public class Plateau{
-	
-	private int[] cases = {0,1,2,3,4,5,6,7,8,9};
-
-	
-	private Map<String, Integer> position;
-   
-   // arriver à limiter le nombre de cases et à faire les getters setters en conséquences
-   public Plateau() 
-   {
-	   this.position = new HashMap<>();
-   }
-   
-   
-   public void setPosition(String name,int cases) 
-   {
-	   position.put(name,cases);
-   }
-   
-   public int getPosition(String name) 
-   {
-	   return position.get(name);
-	   
-   }
-   
-   public void monte(int choixDeplacer,String name, int cases) {/*GUI event*/
-		System.out.println(Direction.HAUT.getMsg() +choixDeplacer+" cases");
-		position.replace(name, cases + (10*choixDeplacer)) ;
-		//monte d'une disaine par unité de choixdeplacer
-	}
-	
-	public void descend(int choixDeplacer,String name, int cases) {/*GUI event*/
-		System.out.println(Direction.BAS.getMsg()+choixDeplacer+" cases");
-		position.replace(name, cases - (10*choixDeplacer)) ;
-		//descend d'une disaine par unité de choixdeplacer
-	}
-	
-	public void tourneDroite(int choixDeplacer,String name, int cases) {/*GUI event*/
-		System.out.println(Direction.DROITE.getMsg()+choixDeplacer+" cases");
-		position.replace(name, cases + choixDeplacer) ;
-	}
-	
-	public void tourneGauche(int choixDeplacer,String name, int cases) {/*GUI event*/
-		System.out.println(Direction.GAUCHE.getMsg()+choixDeplacer+" cases");
-		position.replace(name, cases - choixDeplacer) ;
-	}
-    
-	public void genLac() {
-		setPosition("Lac", 22);
-		setPosition("Lac", 23);
-		setPosition("Lac", 32);
-		setPosition("Lac", 33);
-		setPosition("Lac", 28);
-		setPosition("Lac", 29);
-		setPosition("Lac", 38);
-		setPosition("Lac", 39);
-	}
+public class Plateau extends Case  {
+	/**
+	 * Gestion du plateau de jeu
+	 */
 
 
-/*
- * position.remove("Bombe");
- * lors du lancenment du jeu, disposer les unités une a une
- * aux cases respectives 
- * 
- */
-  
+		public Case map[][];
+		private Case caseSelectionnee;
+		private String typeCase;
 
-}
+		/**
+		 * constante définissant les cases Eau
+		 */
+		public static final String caseEau = "caseEau";
+		/**
+		 * constante définissant les cases Terrain
+		 */
+		public static final String caseTerrain = "caseTerrain";
+		
+		/**
+		 * Constructeur
+		 */
+		public Plateau() {
+			
+			map = new Case[10][10];
+			
+			// crée les cases terrains
+			for (int i = 0; i < 10; i++)
+				for (int j = 0; j < 10; j++) 
+					map[i][j] = new Case(i, j, caseTerrain);
+
+			// crée les cases eau
+			map[2][4] = new Case(2, 4, caseEau);
+			map[3][4] = new Case(3, 4, caseEau);
+			map[2][5] = new Case(2, 5, caseEau);
+			map[3][5] = new Case(3, 5, caseEau);
+			
+			map[6][4] = new Case(6, 4, caseEau);
+			map[7][4] = new Case(7, 4, caseEau);
+			map[6][5] = new Case(6, 5, caseEau);
+			map[7][5] = new Case(7, 5, caseEau);
+				
+			
+		}
+
+		
+	
+		
+		/**
+		 * place un pion sur une case mise en paramètre
+		 * @param name pion à placer
+		 * @param coordXCase coordonnée X de la case sur laquelle sera placé le pion
+		 * @param coordYCase coordonnée Y de la case sur laquelle sera placé le pion
+		 */
+		public void placerUnPion(Pion nom, int coordXCase, int coordYCase) {
+			
+			this.map[coordXCase][coordYCase].setPionPresent(nom);
+			
+		}
+		
+		/**
+		 * pose le pion de la caseOrigine sur la caseArrivee et retire le pion de la caseOrigine
+		 * @param caseOrigine case d'origine
+		 * @param caseArrivee case d'arrivée
+		 */
+		public void deplacerUnPion(Case caseOrigine, Case caseArrivee) {
+			
+			this.map[caseArrivee.getCoordX()][caseArrivee.getCoordY()].setPionPresent(caseOrigine.getPionPresent());
+			this.retirerUnPion(caseOrigine.getCoordX(), caseOrigine.getCoordY());		
+		}
+		
+		/**
+		 * Retire le pion d'une case
+		 * @param coordXCase coordonnée X de la case de laquelle sera retiré le pion
+		 * @param coordYCase coordonnée Y de la case de laquelle sera retiré le pion
+		 */
+		public void retirerUnPion(int coordXCase, int coordYCase) {
+			
+			this.map[coordXCase][coordYCase].setPionPresent(null);
+		}
+		
+		/**
+		 * Retire le pion d'une case
+		 * @param uneCase case de laquelle est retiré le pion
+		 */
+		public void retirerUnPion(Case uneCase){
+			
+			this.map[uneCase.getCoordX()][uneCase.getCoordY()].setPionPresent(null);
+		}
+		
+		/**
+		 * retourne la case en position [i][j]
+		 * @param i 
+		 * @param j
+		 * @return une case ou null
+		 */
+		public Case getCase(int i, int j) {
+			
+			return this.map[i][j];
+		}
+		
+		public Case getCaseSelectionnee() {
+			
+			return this.caseSelectionnee;
+		}
+		
+		public void setCaseSelectionnee(int coordX, int coordY) {
+			caseSelectionnee = map[coordX][coordY];
+		}
+		
+		public Case[][] getPlateauDeJeu() {
+			return map;
+		}
+		
+		
+		
+	}
+

@@ -13,11 +13,11 @@ private int PM;//point de Mouvement
 
 	
 
-	public Pion(Unite nom,int cases) 
+	public Pion(Unite nom,int coordX, int coordY) 
 	{
 		soldat =nom;
 		PM = soldat.getDeplace();
-		position.setPosition(getNom(), cases);
+		position.placerUnPion(this, coordX, coordY);
 		
 	}
 	
@@ -45,7 +45,7 @@ private int PM;//point de Mouvement
 		}
 	}	
 	
-	public void deplacer(Direction d, int choixDeplacer) 
+	/*public void deplacer(Direction d, int choixDeplacer) 
 	{
 		
 		if(choixDeplacer <= PM)
@@ -68,7 +68,8 @@ private int PM;//point de Mouvement
 		
 	}
 	
-	/*public void fatigue(int choixDeplacer) 
+	
+	public void fatigue(int choixDeplacer) 
 	{
 		PM -= choixDeplacer;
 		
