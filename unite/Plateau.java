@@ -14,20 +14,13 @@ public class Plateau extends Case  {
 
 		public Case map[][];
 		private Case caseSelectionnee;
-		private String typeCase;
+		//private String typeCase; si on veut pouvoir noyer les pions dans les lacs.
 
-		/**
-		 * constante définissant les cases Eau
-		 */
+	
 		public static final String caseEau = "caseEau";
-		/**
-		 * constante définissant les cases Terrain
-		 */
 		public static final String caseTerrain = "caseTerrain";
+
 		
-		/**
-		 * Constructeur
-		 */
 		public Plateau() {
 			
 			map = new Case[10][10];
@@ -56,7 +49,7 @@ public class Plateau extends Case  {
 		
 		/**
 		 * place un pion sur une case mise en paramètre
-		 * @param name pion à placer
+		 * @param nom pion à placer
 		 * @param coordXCase coordonnée X de la case sur laquelle sera placé le pion
 		 * @param coordYCase coordonnée Y de la case sur laquelle sera placé le pion
 		 */
