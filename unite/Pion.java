@@ -19,19 +19,19 @@ private Case cases;
 	}
 	
 	
-	/**
-	 * @return
+	/**getters renvoyant une string correspondant au nom du pion
+	 * @return string nom du pion
 	 */
 	public String getNom() {return soldat.getName();}
 	
-	/**
-	 * @return
+	/**getters de l'unité correspondante au pion 
+	 * @return unité du pion
 	 */
 	public Unite getUnite() {return this.soldat;}
 
-	/**
-	 * @param ennemi
-	 * @return
+	/**méthode booléene renvoyant le résultat d'un combat entre deux pion
+	 * @param ennemi pion ciblé par l'attaque
+	 * @return true si le combat est gagné et false si il est perdu
 	 */
 	public boolean combat( Pion ennemi) 
 	{
@@ -56,9 +56,9 @@ private Case cases;
 		
 	}
 	
-	/**
-	 * @param d
-	 * @param nom
+	/**méthode de déplacement des pions 
+	 * @param d un composant de l'enum direction HAUT,BAS,GAUCHE,DROITE
+	 * @param nom unité d'un pion
 	 */
 	public void deplacer(Direction d, Unite nom)
 	{
@@ -83,11 +83,11 @@ private Case cases;
 	}	
 	
 	
-	/**
-	 * @param caseOrigine
-	 * @param d
-	 * @param deplace
-	 * @return
+	/**méthode définissant une case d'arrivée à partir de la case d'origne, de la direction et du déplacement effectué
+	 * @param caseOrigine case ou se trouve le pion 
+	 * @param d direction voule 
+	 * @param deplace nombre de pas aà effectuer
+	 * @return la case d'arrivée qui n'est autre que la case d'origine modifier par la méthode
 	 */
 	public Case cardinal(Case caseOrigine,Direction d,int deplace) 
 	{
