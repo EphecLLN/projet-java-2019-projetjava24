@@ -16,7 +16,6 @@ public class Plateau extends Case  {
 		private Case caseSelectionnee;
 		//private String typeCase; si on veut pouvoir noyer les pions dans les lacs.
 
-	
 		public static final String caseEau = "caseEau";
 		public static final String caseTerrain = "caseTerrain";
 
@@ -53,11 +52,16 @@ public class Plateau extends Case  {
 		 * @param coordXCase coordonnée X de la case sur laquelle sera placé le pion
 		 * @param coordYCase coordonnée Y de la case sur laquelle sera placé le pion
 		 */
-		public void placerUnPion(Pion nom, int coordXCase, int coordYCase) {
+		
+		
+		// a modifier public void placerUnPion(Unite soldat, int coordXCase, int coordYCase) 
+		public void placerUnPion(String nom, int coordXCase, int coordYCase) {
 			
 			this.map[coordXCase][coordYCase].setPionPresent(nom);
 			
 		}
+		
+		
 		
 		/**
 		 * pose le pion de la caseOrigine sur la caseArrivee et retire le pion de la caseOrigine

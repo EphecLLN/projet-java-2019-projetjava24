@@ -1,6 +1,11 @@
 package unite;
 import java.io.IOException;
 
+/**
+ * @author florent janssens
+ *
+ */   
+
 public class Case {
 
 
@@ -15,7 +20,7 @@ public class Case {
 		
 		private int coordX;
 		private int coordY;
-		private Pion pionPresent;
+		protected String pionPresent;
 		/**
 		* Cette variable prend la valeur  Plateau.caseTerrain ou Plateau.caseEau.
 		*/
@@ -64,12 +69,12 @@ public class Case {
 				this.coordY = coordY;
 			}
 			
-			public Pion getPionPresent()
+			public String getPionPresent()
 			{
 				return pionPresent;
 			}
 			
-			public void setPionPresent(Pion nom)
+			public void setPionPresent(String nom)
 			{
 				this.pionPresent = nom;
 			}
