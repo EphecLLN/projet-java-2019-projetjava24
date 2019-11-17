@@ -9,11 +9,11 @@ import java.awt.Color;
  */
 
 /**
-*La classe Joueur contient tous les attributs propres à un joueur :
+*La classe Joueur contient tous les attributs propres Ã  un joueur :
 *	- son nom (ou pseudo),
 *	- sa couleur,
 *	- son id
-*	- sa réserve de pion
+*	- sa rÃ©serve de pion
 *	- la liste des pions qu'il a pris,
 *	- la liste des pions qu'il doit placer.
 */
@@ -43,7 +43,7 @@ public class Joueur {
 			this.couleur = Color.RED;
 		}
 		//un joueur a au maximum 40 pions
-		listePionsPris = new int[9];//nous avons 9 Unités différentes
+		listePionsPris = new int[9];//nous avons 9 UnitÃ©s diffÃ©rentes
 		listePionsAPlacer = new Pion[40];
 	    //remplirListePionsAPlacer();
 		
@@ -96,9 +96,9 @@ public class Joueur {
 	}
 	
 	/**
-	 * Le joueur choisi un type d'unité à acheter et un nouveau Pion est créé.
-	 * @param soldat, le type d'unité
-	 * @return newSoldat, le Pion créé de type soldat
+	 * Le joueur choisi un type d'unitÃ© Ã  acheter et un nouveau Pion est crÃ©Ã©.
+	 * @param soldat, le type d'unitÃ©
+	 * @return newSoldat, le Pion crÃ©Ã© de type soldat
 	 */
 	public Pion acheter(Unite soldat) {
 		Pion newSoldat = new Pion(soldat);
@@ -107,24 +107,24 @@ public class Joueur {
 	}
 	
 	/**
-	 * Renvoie le coût d'une Unite.
+	 * Renvoie le coÃ»t d'une Unite.
 	 * @param soldat, l'Unite
-	 * @return le coût
+	 * @return le coÃ»t
 	 */
 	public int payer(Unite soldat) {
 		return soldat.getPrice();
 	}
 	
 	/**
-	 * Permet de savoir si le joeur est prêt à jouer car il n'a pas de pions en réserve.
-	 * @return true, si la réserve est égale à zéro (vide)
+	 * Permet de savoir si le joeur est prÃªt Ã  jouer car il n'a pas de pions en rÃ©serve.
+	 * @return true, si la rÃ©serve est Ã©gale Ã  zÃ©ro (vide)
 	 */
 	public boolean estPret() {
 		return reserve == 0;
 	}
 	
 	/**
-	 * Permet de diminuer la réserve de une unité.
+	 * Permet de diminuer la rÃ©serve de une unitÃ©.
 	 */
 	public void retirerReserve() {
 		reserve = reserve - 1;
@@ -132,6 +132,7 @@ public class Joueur {
 	
 	/**
 	 * Remplie la liste des pions que doit placer le joueur sur le plateau de jeu.
+	 il faudra faire ca pour les 40 a placer au debut de la partie !!
 	 */
 	
 	/*private void remplirListePionsAPlacer() {
