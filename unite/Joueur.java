@@ -157,4 +157,44 @@ public class Joueur {
 		
 	}*/
 	
+	/**
+	 * Place les pions du joueur aléatoirement sur le plateau
+	 * @param plateauDeJeu le plateau de jeu
+	 */
+	public void placerPionsAleatoirement(Plateau map) {
+		/*
+		 * en fonction de la couleur du joueur, on place les pions sur les case du plateau (en haut ou en bas)
+		 * et jamais deux pions sur une même case
+		 */
+		int nbAleatoire;
+		Random generateurRdm = new Random();
+		
+		if (this.couleur.equals(Color.BLUE))	
+			for (int x = 0; x < 10; x++) {
+				for (int y = 0; y < 4; y++) {
+					do {
+						nbAleatoire = generateurRdm.nextInt(40);
+					}
+					while (listePionsAPlacer[nbAleatoire] == null);
+				
+					map.placerUnPion(listePionsAPlacer[nbAleatoire],x , y);
+					listePionsAPlacer[nbAleatoire] = null;
+				}
+			}
+		else if (this.couleur.equals(Color.RED))
+			for (int x = 0; x < 10; x++) {
+				for (int y = 6; y < 10; y++) {
+					do {
+						nbAleatoire = generateurRdm.nextInt(40);
+					}
+					while (listePionsAPlacer[nbAleatoire] == null);
+				
+					map.placerUnPion(listePionsAPlacer[nbAleatoire],x , y);
+					listePionsAPlacer[nbAleatoire] = null;
+				}
+			}
+		
+		
+	}
+	
 }
