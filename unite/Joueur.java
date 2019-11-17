@@ -8,12 +8,24 @@ import java.awt.Color;
  *
  */
 
+/**
+*La classe Joueur contient tous les attributs propres à un joueur :
+*	- son nom (ou pseudo),
+*	- sa couleur,
+*	- son id
+*	- sa réserve de pion
+*	- la liste des pions qu'il a pris,
+*	- la liste des pions qu'il doit placer.
+*/
+
 public class Joueur {
 	
 	private String pseudo;
 	private Color couleur;
 	private int id;
 	private int reserve;
+	protected int[] listePionsPris;
+	protected Pion[] listePionsAPlacer;
 	
 	/**
 	 * @param pseudo
@@ -30,6 +42,11 @@ public class Joueur {
 		else {
 			this.couleur = Color.RED;
 		}
+		//un joueur a au maximum 40 pions
+		listePionsPris = new int[9];//nous avons 9 Unités différentes
+		listePionsAPlacer = new Pion[40];
+	    //remplirListePionsAPlacer();
+		
 	}
 	
 	public String getPseudo() {
@@ -56,6 +73,26 @@ public class Joueur {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	/**
+	 * Retourne la liste des pions pris par le joueur
+	 * @return un tableau d'entier : l'indice  correspond au grade du pion - 1 et l'entier
+	 * correspondant au nombre de pions de ce grade pris par le joueur
+	 */
+	public int[] getListePionsPris() {
+		return listePionsPris;
+	}
+
+	public void setListePionsPris(int[] listePionsPris) {
+		this.listePionsPris = listePionsPris;
+	}
+
+	public Pion[] getListePionsAPlacer() {
+		return listePionsAPlacer;
+	}
+
+	public void setListePionsAPlacer(Pion[] listePionsAPlacer) {
+		this.listePionsAPlacer = listePionsAPlacer;
 	}
 	
 	/**
@@ -92,4 +129,31 @@ public class Joueur {
 	public void retirerReserve() {
 		reserve = reserve - 1;
 	}
+	
+	/**
+	 * Remplie la liste des pions que doit placer le joueur sur le plateau de jeu.
+	 */
+	
+	/*private void remplirListePionsAPlacer() {
+		listePionsAPlacer[0] = new Pion();
+		
+		listePionsAPlacer[1] = new Pion();
+		
+		listePionsAPlacer[2] = new Pion();
+		
+		listePionsAPlacer[3] = new Pion();
+		
+		listePionsAPlacer[4] = new Pion();
+		
+		listePionsAPlacer[5] = new Pion();
+		
+		listePionsAPlacer[6] = new Pion();
+		
+		listePionsAPlacer[7] = new Pion();
+		
+		listePionsAPlacer[8] = new Pion();
+		
+		
+	}*/
+	
 }
