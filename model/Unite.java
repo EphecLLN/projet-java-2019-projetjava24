@@ -3,25 +3,25 @@ package model;
 public enum Unite {
 	
 	DRAPEAU("Drapeau",0,0,0,0,1),
-	BOMBE("Bombe",0,2,2,100,3),
-	DEMINEUR("Démineur",3,1,1,160,3),
-	ECLAIREUR("Eclaireur",5,1,1,100,5),
-	GENERAL("Générale",3,4,2,700,1),
-	ESPION("Espion",3,2,1,500,1),
-	CAPORAL("Caporale",2,3,2,360,5),
-	SABOTEUR("Saboteur",2,3,1,500,1),
-	TANK("Char d'assaut",1,6,3,1000,1);
+	BOMBE("Bombe",8,0,2,100,3),
+	DEMINEUR("DÃ©mineur",1,3,1,160,3),
+	ECLAIREUR("Eclaireur",3,5,1,100,5),
+	GENERAL("GÃ©nÃ©rale",6,3,4,700,1),
+	ESPION("Espion",4,3,2,500,1),
+	CAPORAL("Caporale",5,2,3,360,5),
+	SABOTEUR("Saboteur",2,2,3,500,1),
+	TANK("Char d'assaut",7,1,6,1000,1);
 	
 	private String nom;
 	
-	private int deplacement,portee,force,prix,limit;
+	private int grade,deplacement,portee,prix,limit;
 	
 	
-	Unite(String nom, int deplacement,int portee, int force, int prix, int limit) {
+	Unite(String nom, int grade,int deplacement,int portee, int prix, int limit) {
 		this.nom = nom;
+		this.grade = grade;
 		this.deplacement = deplacement;
 		this.portee = portee;
-		this.force = force;
 		this.prix = prix;
 		this.limit = limit;
 		
@@ -41,15 +41,15 @@ public enum Unite {
 	
 	public int getPortee() {return portee;}
 	
-	//méthode de différenciation en combat
+	//mÃ©thode de diffÃ©renciation en combat
 	
 	public boolean estDetruit(Unite ennemi) 
 	{
 		switch(this.getName()) 
 		{
-		case "Démineur": return ennemi.getName()=="Bombe";
+		case "DÃ©mineur": return ennemi.getName()=="Bombe";
 		
-		case "Espion": return ennemi.getName()=="Générale";
+		case "Espion": return ennemi.getName()=="GÃ©nÃ©rale";
 		
 		case "saboteur": return ennemi.getName()=="Char d'assaut";
 		
