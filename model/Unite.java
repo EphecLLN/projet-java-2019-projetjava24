@@ -4,9 +4,9 @@ public enum Unite {
 	
 	DRAPEAU("Drapeau",0,0,0,0,1),
 	BOMBE("Bombe",8,0,2,100,3),
-	DEMINEUR("DÃ©mineur",1,3,1,160,3),
+	DEMINEUR("Démineur",1,3,1,160,3),
 	ECLAIREUR("Eclaireur",3,5,1,100,5),
-	GENERAL("GÃ©nÃ©rale",6,3,4,700,1),
+	GENERAL("Générale",6,3,4,700,1),
 	ESPION("Espion",4,3,2,500,1),
 	CAPORAL("Caporale",5,2,3,360,5),
 	SABOTEUR("Saboteur",2,2,3,500,1),

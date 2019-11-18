@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  * 
@@ -12,70 +13,70 @@ public class Joueur {
 	
 	private String pseudo;
 	private Color couleur;
-	private int id;
-	private int reserve;
+	private int solde;
+	private ArrayList<Pion> reserve;
+	private ArrayList<Pion> cimetiere;
 	
-	/**
-	 * @param pseudo
-	 * @param id 1 ou 2
-	 * 
-	 */
-	public Joueur(String pseudo, int id) {
+	//constructeur
+	public Joueur(String pseudo, Color couleur) {
 		this.pseudo = pseudo;
-		this.id = id;
-		this.reserve = 20;
-		if(id == 1) {
-			this.couleur = Color.BLUE;
-		}
-		else {
-			this.couleur = Color.RED;
-		}
+		reserve = new ArrayList<Pion>();
+		solde = 0;
+		this.couleur = couleur;
+		cimetiere = new ArrayList<Pion>();
 	}
 	
+	//getters
 	public String getPseudo() {
 		return this.pseudo;
 	}
 	public Color getCouleur() {
 		return this.couleur;
 	}
-	public int getReserve() {
+	public ArrayList<Pion> getReserve() {
 		return this.reserve;
 	}
-	public int getId() {
-		return this.id;
+	public int getSolde() {
+		return this.solde;
+	}
+	public ArrayList<Pion> getCimetiere(){
+		return this.cimetiere;
 	}
 	
+	//setters
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
 	}
-	public void setReserve(int reserve) {
+	public void setReserve(ArrayList<Pion> reserve) {
 		this.reserve = reserve;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setSolde(int solde) {
+		this.solde = solde;
+	}
+	public void setCimetiere(ArrayList<Pion> cimetiere) {
+		this.cimetiere = cimetiere;
+	}
+	
+	//méthodes
+	/**
+	 * Le joueur choisi un type d'unité à acheter et un nouveau Pion est créé et ajoué à la réserve.
+	 * le solde est diminué du prix de l'unité.
+	 * @param unite, le type d'unité
+	 */
+	public void acheter(Unite unite) {
+		Pion newPion = new Pion(unite);
+		reserve.add(newPion);
+		solde -= unite.getPrice();
 	}
 	
 	/**
-	 * Le joueur choisi un type d'unité à acheter et un nouveau Pion est créé.
-	 * @param soldat, le type d'unité
-	 * @return newSoldat, le Pion créé de type soldat
+	 * Augmentation du solde de 25.
 	 */
-	public Pion acheter(Unite soldat) {
-		Pion newSoldat = new Pion(soldat);
-		reserve = reserve + 1;
-		return newSoldat;
-	}
-	
-	/**
-	 * Renvoie le coût d'une Unite.
-	 * @param soldat, l'Unite
-	 * @return le coût
-	 */
-	public int payer(Unite soldat) {
-		return soldat.getPrice();
+	public void genererSoldeParTour() {
+		solde += 25;
 	}
 	
 	/**
@@ -83,13 +84,28 @@ public class Joueur {
 	 * @return true, si la réserve est égale à zéro (vide)
 	 */
 	public boolean estPret() {
-		return reserve == 0;
+		return reserve.size() == 0;
 	}
 	
 	/**
-	 * Permet de diminuer la réserve de une unité.
+	 * Ajoute les 20 pions de départ à la réserve.
 	 */
-	public void retirerReserve() {
-		reserve = reserve - 1;
+	public void initReserveDepart() {
+		reserve.add(new Pion(Unite.DRAPEAU));
+		for(int i = 1; i <= 3; i ++) {
+			reserve.add(new Pion(Unite.BOMBE));
+		}
+		reserve.add(new Pion(Unite.SABOTEUR));
+		reserve.add(new Pion(Unite.GENERAL));
+		reserve.add(new Pion(Unite.TANK));
+		for(int i = 1; i <= 3; i ++) {
+			reserve.add(new Pion(Unite.DEMINEUR));
+		}
+		for(int i = 1; i <= 5; i ++) {
+			reserve.add(new Pion(Unite.ECLAIREUR));
+		}
+		for(int i = 1; i <= 5; i ++) {
+			reserve.add(new Pion(Unite.CAPORAL));
+		}
 	}
 }
