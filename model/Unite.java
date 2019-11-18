@@ -33,7 +33,7 @@ public enum Unite {
 
 	public int getDeplace() {return deplacement;}
 
-	public int getStrength() {return force;}
+	public int getStrength() {return grade;}
 
 	public int getPrice() {return prix;}
 	
@@ -41,15 +41,15 @@ public enum Unite {
 	
 	public int getPortee() {return portee;}
 	
-	//mÃ©thode de diffÃ©renciation en combat
+	//méthode de différenciation en combat
 	
 	public boolean estDetruit(Unite ennemi) 
 	{
 		switch(this.getName()) 
 		{
-		case "DÃ©mineur": return ennemi.getName()=="Bombe";
+		case "Démineur": return ennemi.getName()=="Bombe";
 		
-		case "Espion": return ennemi.getName()=="GÃ©nÃ©rale";
+		case "Espion": return ennemi.getName()=="Générale";
 		
 		case "saboteur": return ennemi.getName()=="Char d'assaut";
 		
