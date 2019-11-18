@@ -1,6 +1,4 @@
-package unite;
-
-import javafx.stage.Stage;
+package model;
 
 public class Main {
 

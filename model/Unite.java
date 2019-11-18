@@ -1,4 +1,4 @@
-package unite;
+package model;
 
 public enum Unite {
 	

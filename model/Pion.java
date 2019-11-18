@@ -1,4 +1,4 @@
-package unite;
+package model;
 
 
 public class Pion {
@@ -13,12 +13,10 @@ private int PM;//point de Mouvement
 
 	
 
-	public Pion(Unite nom,int coordX, int coordY) 
+	public Pion(Unite nom) 
 	{
 		soldat =nom;
 		PM = soldat.getDeplace();
-		position.placerUnPion(this, coordX, coordY);
-		
 	}
 	
 	

@@ -1,4 +1,4 @@
-package unite;
+package model;
 
 /**
  * 
@@ -36,8 +36,7 @@ public class Banque {
 	 * @param joueur2
 	 */
 	public void initBanque(Joueur joueur1,Joueur joueur2) {
-		Banque banque = new Banque();
-		solde1.attribuerJoueur(joueur1);
-		solde2.attribuerJoueur(joueur2);
+		this.solde1.attribuerJoueur(joueur1);
+		this.solde2.attribuerJoueur(joueur2);
 	}
 }

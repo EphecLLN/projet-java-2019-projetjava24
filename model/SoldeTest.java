@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unite;
+package model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 class SoldeTest {
 
 	/**
-	 * Test method for {@link unite.Solde#Solde()}.
+	 * Test method for {@link model.Solde#Solde()}.
 	 */
 	@Test
 	void testSolde() {
@@ -24,7 +24,7 @@ class SoldeTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Solde#attribuerJoueur(unite.Joueur)}.
+	 * Test method for {@link model.Solde#attribuerJoueur(model.Joueur)}.
 	 */
 	@Test
 	void testAttribuerJoueur() {
@@ -35,7 +35,7 @@ class SoldeTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Solde#augmenter(int)}.
+	 * Test method for {@link model.Solde#augmenter(int)}.
 	 */
 	@Test
 	void testAugmenter() {
@@ -45,7 +45,7 @@ class SoldeTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Solde#diminuer(int)}.
+	 * Test method for {@link model.Solde#diminuer(int)}.
 	 */
 	@Test
 	void testDiminuer() {

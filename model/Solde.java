@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unite;
+package model;
 
 /**
  * @author Crenier Amaury
@@ -42,19 +42,17 @@ public class Solde {
 	/**
 	 * Ajouter une valeur au solde actuel.
 	 * @param valeur 
-	 * @return le nouveau solde
 	 */
-	public int augmenter(int valeur) {
-		return this.valeur + valeur;
+	public void augmenter(int valeur) {
+		this.valeur += valeur;
 	}
 	
 	/**
 	 * Retirer une valeur au solde actuel.
 	 * @param valeur
-	 * @return le nouveau solde
 	 */
-	public int diminuer(int valeur) {
-		return this.valeur - valeur;
+	public void diminuer(int valeur) {
+		this.valeur -= valeur;
 	}
 
 }

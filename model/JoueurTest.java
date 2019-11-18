@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unite;
+package model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 class JoueurTest {
 
 	/**
-	 * Test method for {@link unite.Joueur#Joueur(String, int)}.
+	 * Test method for {@link model.Joueur#Joueur(String, int)}.
 	 */
 	@Test
 	void testJoueur() {
@@ -28,7 +28,7 @@ class JoueurTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Joueur#getCouleur()}.
+	 * Test method for {@link model.Joueur#getCouleur()}.
 	 */
 	@Test
 	void testGetCouleur() {
@@ -39,7 +39,7 @@ class JoueurTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Joueur#acheter(unite.Unite)}
+	 * Test method for {@link model.Joueur#acheter(model.Unite)}
 	 */
 	@Test
 	void testAcheter() {
@@ -50,7 +50,7 @@ class JoueurTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Joueur#payer(unite.Unite)}.
+	 * Test method for {@link model.Joueur#payer(model.Unite)}.
 	 */
 	@Test
 	void testPayer() {
@@ -59,7 +59,7 @@ class JoueurTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Joueur#estPret()}.
+	 * Test method for {@link model.Joueur#estPret()}.
 	 */
 	@Test
 	void testEstPret() {
@@ -69,7 +69,7 @@ class JoueurTest {
 	}
 	
 	/**
-	 * Test method for {@link unite.Joueur#retirerReserve()}.
+	 * Test method for {@link model.Joueur#retirerReserve()}.
 	 */
 	@Test
 	void testRetirerReserve() {
