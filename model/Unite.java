@@ -33,7 +33,7 @@ public enum Unite {
 
 	public int getDeplace() {return deplacement;}
 
-	public int getStrength() {return grade;}
+	public int getGrade() {return grade;}
 
 	public int getPrice() {return prix;}
 	
@@ -43,21 +43,7 @@ public enum Unite {
 	
 	//méthode de différenciation en combat
 	
-	public boolean estDetruit(Unite ennemi) 
-	{
-		switch(this.getName()) 
-		{
-		case "Démineur": return ennemi.getName()=="Bombe";
-		
-		case "Espion": return ennemi.getName()=="Générale";
-		
-		case "saboteur": return ennemi.getName()=="Char d'assaut";
-		
-		default: return false;
-		}
-		
-		
-	}
+	
 	
 	
 
