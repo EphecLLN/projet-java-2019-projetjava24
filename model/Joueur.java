@@ -66,7 +66,7 @@ public class Joueur {
 	 * le solde est diminué du prix de l'unité.
 	 * @param unite, le type d'unité
 	 */
-	public void acheter(Unite unite) {
+	public void acheterUnite(Unite unite) {
 		Pion newPion = new Pion(unite);
 		reserve.add(newPion);
 		solde -= unite.getPrice();

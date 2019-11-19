@@ -1,89 +1,104 @@
 package model;
 
-import model.Case;
-import model.Direction;
-import model.Pion;
-import model.Plateau;
-import model.Unite;
+import java.util.UUID;
 
 public class Pion {
 
-private Unite soldat;
-private Plateau position;
-private Case cases;
+private Unite unite;
+private Case position;
+private UUID id;
 
-	/**Constructeur  de la class Pion
-	 * @param nom un pion qui doit être défini dans l'enum Unite pou y récupérer l'ensemble des données
-	 */
-	public Pion(Unite nom) 
-	{
-		soldat =nom;
-		position.placerUnPion(this, 0, 0);
-		cases = position.getCaseSelectionnee();
-		
+	public Pion(Unite unite) {
+		this.unite = unite;
+		this.position = new Case();
+		this.id = UUID.randomUUID();	
 	}
 	
+	public Unite getUnite() {
+		return unite;
+	}
+
+	public void setUnite(Unite unite) {
+		this.unite = unite;
+	}
 	
-	/**
-	 * @return
-	 */
-	public String getNom() {return soldat.getName();}
+	public Case getPosition() {
+		return position;
+	}
 	
-	/**
-	 * @return
-	 */
-	public Unite getUnite() {return this.soldat;}
+	public void setPosition(Case endroit) {
+		this.position = endroit;
+	}
+	
+	public UUID getId() {
+		return id;
+	}
 
 	/**
-	 * @param ennemi
-	 * @return
+	 * Combat entre deux pions. L'attaquant est le pion qui se déplace et le défenseur
+	 * est le pion déjà présent sur la case.
+	 * @param defenseur
+	 * @return pionGagnant
 	 */
-	public boolean combat( Pion ennemi) 
-	{
-		final Unite allie = this.getUnite();
-		final Unite adversaire = ennemi.getUnite();
-		
-		if(allie.estDetruit(adversaire)) 
-		{
-			return false;
-		}
-		else 
-		{
-			if(allie.getStrength() <= adversaire.getStrength()) 
-			{
-				return false;
+	public Pion combattre(Pion defenseur) {
+		Pion pionGagnant;
+		if (defenseur.unite == Unite.BOMBE) {
+			if (this.unite == Unite.DEMINEUR) {
+				pionGagnant = this;
 			}
-			else 
-			{
-				return true;
+			else {
+				pionGagnant = defenseur;
 			}
 		}
-		
+		if (defenseur.unite == Unite.TANK) {
+			if (this.unite == Unite.SABOTEUR) {
+				pionGagnant = this;
+			}
+			else {
+				pionGagnant = defenseur;
+			}
+		}
+		if (defenseur.unite == Unite.GENERAL) {
+			if (this.unite == Unite.ESPION) {
+				pionGagnant = this;
+			}
+			else {
+				pionGagnant = defenseur;
+			}
+		}
+		else {
+			if (this.unite.getGrade() >= defenseur.unite.getGrade()) {
+				pionGagnant = this;
+			}
+			else {
+				pionGagnant = defenseur;
+			}
+		}
+		return pionGagnant;
 	}
 	
 	/**
-	 * @param d
-	 * @param nom
+	 * Déplace un pion d'une case à une autre selon sa capacité de déplacement.
+	 * @param caseDepart
+	 * @param caseArrivee
 	 */
-	public void deplacer(Direction d, Unite nom)
-	{
-		
-		final Case caseSelect = this.cardinal(cases,d, nom.getDeplace());
-		
-		if(caseSelect.getPionPresent() != null) 
-		{
-			if(this.combat(caseSelect.getPionPresent())) 
-			{
-				position.deplacerUnPion(cases, caseSelect);
-			}
-			else
-			{
-				position.retirerUnPion(cases);
-			}
+	public void deplacer(int x, int y) {
+		int distance;
+		if (this.position.getCoordX() == x) {
+			distance = y - this.position.getCoordY();
 		}
-		else
-		{
-			position.deplacerUnPion(cases, caseSelect);
+		if (this.position.getCoordY() == y) {
+			distance = x - this.position.getCoordX();
+		}
+		else {
+			distance = 0;
+		}
+		
+		if(distance <= this.unite.getDeplace()) {
+			
+		}
+		else {
+			ERROR
 		}
 	}	
 	
