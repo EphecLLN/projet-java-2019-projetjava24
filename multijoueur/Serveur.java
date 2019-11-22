@@ -4,6 +4,7 @@
 package multijoueur;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -40,6 +41,12 @@ public class Serveur {
 			sS.setSoTimeout(10000);
 			
 			Socket s = sS.accept();
+			
+			PrintWriter out = new PrintWriter(s.getOutputStream());//pour passer le message du serveur au client
+			out.println("message");
+			out.flush();
+			
+			
 			sS.close();
 			s.close();
 			
