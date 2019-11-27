@@ -10,6 +10,6 @@ package view;
 public class Main {
 
 	public static void main(String[] args) {
-		Stratego stratego = new Stratego();
+		StrategoGUI stratego = new StrategoGUI();
 	}
 }

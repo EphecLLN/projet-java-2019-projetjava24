@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+
 /**
  * @author florent janssens
  *
@@ -7,10 +9,11 @@ package model;
 
 public class Plateau {
 	
-		public Case map[][];
+		public Case[][] map;
+		public HashMap<Case,Pion> pionsEnJeu;
 
 		public Plateau() {
-			
+			pionsEnJeu = new HashMap<Case, Pion>();
 			map = new Case[10][10];
 			
 			// créer les cases terrain
@@ -34,7 +37,7 @@ public class Plateau {
 		 * Définir la case occupée par un pion.
 		 * @param endroit, la case à occuper
 		 */
-		public void placerUnPion(Case endroit) {
+		public void occuperLaCase(Case endroit) {
 			this.map[endroit.getCoordX()][endroit.getCoordY()].setPionPresent(true);
 		}
 			
@@ -42,8 +45,59 @@ public class Plateau {
 		 * Définir la case libre.
 		 * @param endroit, la case à libérer
 		 */
-		public void retirerUnPion(Case endroit) {
+		public void libérerLaCase(Case endroit) {
 			this.map[endroit.getCoordX()][endroit.getCoordY()].setPionPresent(false);
 		}	
-	}
-
+		
+		
+		public int calculerDistance(Case caseOrigine, int x, int y) {
+			int distance;
+			if (caseOrigine.getCoordX() == x) {
+				distance = y - caseOrigine.getCoordY();
+			}
+			else if (caseOrigine.getCoordY() == y) {
+				distance = x - caseOrigine.getCoordX();
+			}
+			else {
+				distance = 0; // gestion erreur déplacement non linéaire
+			}
+			return distance;
+		}
+		
+		public void placerPion(Pion pion, Case endroit) {
+			pionsEnJeu.remove(pion.getPosition());
+			pion.setPosition(endroit);
+			pionsEnJeu.put(endroit, pion);
+		}
+		
+		/**
+		 * Déplace un pion d'une case à une autre selon sa capacité de déplacement.
+		 * @param caseDepart
+		 * @param caseArrivee
+		 */
+		public void deplacer(Pion pion,int x, int y) {
+			int distance = this.calculerDistance(pion.getPosition(), x, y);
+			if (distance == 0) {
+				//ERROR
+				System.err.println("Vous êtes déjà sur cette case");
+			}
+			else if (distance <= pion.getUnite().getDeplace()) {
+				if (map[x][y].getPionPresent()) {
+					pion.combattre(pionsEnJeu.get(map[x][y]));
+				}
+				else {
+					this.placerPion(pion, map[x][y]);
+				}
+			}
+			else {
+				//ERROR
+				System.err.println("déplacement non autorisé");
+			}
+		}
+		
+		public void terminerCombat(Pion perdant, Pion gagnant, Joueur joueur, Case endroit) {
+			pionsEnJeu.remove(perdant.getPosition());
+			joueur.getCimetiere().add(perdant);
+			this.placerPion(gagnant, endroit);
+		}
+}

@@ -1,15 +1,17 @@
 package controler;
 
-import view.Stratego;
-import model.Main;
+import view.StrategoConsole;
+
+import model.Jeu;
 
 public class StrategoController {
 	
-	private Stratego stratego;
-	private Main main;
+	private StrategoConsole console;
+	private Jeu jeu;
 	
-	public StrategoController(Stratego stratego, Main main) {
-		this.stratego = stratego;
-		this.main = main;
-	}
+	public StrategoController(StrategoConsole console, Jeu jeu) {
+		this.console = console;
+		this.jeu = jeu;
+	}	
 }
+

@@ -13,12 +13,12 @@ import javax.swing.JButton;
  * @author Crenier Amaury
  *
  */
-public class Stratego extends JFrame {
+public class StrategoGUI extends JFrame {
 	
 	private Panneau panneau = new Panneau();
 	private JButton bouton = new JButton("Start Game");
 	
-	public Stratego() {
+	public StrategoGUI() {
 		this.setVisible(true);
 		this.setTitle("Stratego Remastered");
 		this.setSize(1000, 1000);
