@@ -41,41 +41,49 @@ private UUID id;
 	 * @return pionGagnant
 	 */
 	public Pion combattre(Pion defenseur) {
-		Pion pionGagnant;
-		if (defenseur.unite == Unite.BOMBE) {
+		Pion pionGagnant = null;
+		
+		switch(defenseur.unite) {
+		case DRAPEAU: this.aGagne();
+			break;
+		case BOMBE:
 			if (this.unite == Unite.DEMINEUR) {
 				pionGagnant = this;
 			}
 			else {
-				pionGagnant = defenseur;
+				pionGagnant =  defenseur;
 			}
-		}
-		if (defenseur.unite == Unite.TANK) {
+			
+		case TANK:
 			if (this.unite == Unite.SABOTEUR) {
-				pionGagnant = this;
+				pionGagnant =  this;
 			}
 			else {
-				pionGagnant = defenseur;
+				pionGagnant =  defenseur;
 			}
-		}
-		if (defenseur.unite == Unite.GENERAL) {
+			
+		case GENERAL:
 			if (this.unite == Unite.ESPION) {
 				pionGagnant = this;
 			}
 			else {
-				pionGagnant = defenseur;
+				pionGagnant =  defenseur;
 			}
-		}
-		else {
-			if (this.unite.getGrade() >= defenseur.unite.getGrade()) {
-				pionGagnant = this;
+			//si le Pion ne correspond pas au caractéristique ci-dessus
+			default:
+				if (this.unite.getGrade() >= defenseur.unite.getGrade()) {
+					pionGagnant = this;
 			}
 			else {
 				pionGagnant = defenseur;
 			}
+				
 		}
 		return pionGagnant;
+		
 	}
+	
+	public void aGagne() {}
 	
 	/**
 	 * Déplace un pion d'une case à une autre selon sa capacité de déplacement.
