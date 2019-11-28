@@ -99,5 +99,6 @@ public class Plateau {
 			pionsEnJeu.remove(perdant.getPosition());
 			joueur.getCimetiere().add(perdant);
 			this.placerPion(gagnant, endroit);
+			//appel à actualiser la vue
 		}
 }

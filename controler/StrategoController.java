@@ -1,7 +1,6 @@
 package controler;
 
 import view.StrategoConsole;
-
 import model.Jeu;
 
 public class StrategoController {
@@ -12,6 +11,8 @@ public class StrategoController {
 	public StrategoController(StrategoConsole console, Jeu jeu) {
 		this.console = console;
 		this.jeu = jeu;
-	}	
+	}
+
+
 }
 
