@@ -6,9 +6,9 @@ public enum Unite {
 	BOMBE("Bombe",8,0,100),
 	DEMINEUR("Démineur",1,3,160),
 	ECLAIREUR("Eclaireur",3,5,100),
-	GENERAL("Générale",6,3,700),
+	GENERAL("Général",6,3,700),
 	ESPION("Espion",4,3,500),
-	CAPORAL("Caporale",5,2,360),
+	CAPORAL("Caporal",5,2,360),
 	SABOTEUR("Saboteur",2,2,500),
 	TANK("Char d'assaut",7,1,1000);
 	
@@ -36,8 +36,20 @@ public enum Unite {
 
 	public int getPrice() {return prix;}
 	
-
-	
+	public static Unite convertirStrUnite(String unite) {
+		switch (unite) {
+		case "drapeau": return Unite.DRAPEAU;
+		case "bombe": return Unite.BOMBE;
+		case "démineur": return Unite.DEMINEUR;
+		case "éclaireur": return Unite.ECLAIREUR;
+		case "général": return Unite.GENERAL;
+		case "espion": return Unite.ESPION;
+		case "caporal": return Unite.CAPORAL;
+		case "saboteur": return Unite.SABOTEUR;
+		case "char d'assaut": return Unite.TANK;
+		default: return null;
+		}
+	}
 
 
 

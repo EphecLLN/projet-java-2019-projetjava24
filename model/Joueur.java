@@ -60,6 +60,15 @@ public class Joueur {
 		this.cimetiere = cimetiere;
 	}
 	
+	public String toString() {
+		String couleurStr = "";
+		if (couleur == Color.RED) {
+			couleurStr = "rouge";
+		}
+		else couleurStr = "bleu";
+		return pseudo + ", " + couleurStr + ", solde en banque: " + solde + " pièces.";
+	}
+	
 	//méthodes
 	/**
 	 * Le joueur choisi un type d'unité à acheter et un nouveau Pion est créé et ajoué à la réserve.
@@ -67,9 +76,14 @@ public class Joueur {
 	 * @param unite, le type d'unité
 	 */
 	public void acheterUnite(Unite unite) {
+		if (solde >= unite.getDeplace()) {
 		Pion newPion = new Pion(unite);
 		reserve.add(newPion);
 		solde -= unite.getPrice();
+		}
+		else {
+			System.out.println("Solde insuffisant!");
+		}
 	}
 	
 	/**
@@ -98,6 +112,7 @@ public class Joueur {
 		reserve.add(new Pion(Unite.SABOTEUR));
 		reserve.add(new Pion(Unite.GENERAL));
 		reserve.add(new Pion(Unite.TANK));
+		reserve.add(new Pion(Unite.ESPION));
 		for(int i = 1; i <= 3; i ++) {
 			reserve.add(new Pion(Unite.DEMINEUR));
 		}
@@ -107,5 +122,15 @@ public class Joueur {
 		for(int i = 1; i <= 5; i ++) {
 			reserve.add(new Pion(Unite.CAPORAL));
 		}
+	}
+	
+	public int compteurReserve(ArrayList<Pion> reserve, String unite) {
+		int compteur = 0;
+		for (int i = 0; i < reserve.size(); i++) {
+			if (reserve.get(i).getUnite().getName() == unite) {
+				compteur++;
+			}
+		}
+		return compteur;
 	}
 }
