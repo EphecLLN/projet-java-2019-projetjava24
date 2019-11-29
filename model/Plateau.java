@@ -16,12 +16,12 @@ public class Plateau {
 			pionsEnJeu = new HashMap<Case, Pion>();
 			map = new Case[10][10];
 			
-			// créer les cases terrain
+			// crÃ©er les cases terrain
 			for (int i = 0; i < 10; i++)
 				for (int j = 0; j < 10; j++) 
 					map[i][j] = new Case(i, j, "terrain");
 
-			// créer les cases eau
+			// crÃ©er les cases eau
 			map[2][4] = new Case(2, 4, "eau");
 			map[3][4] = new Case(3, 4, "eau");
 			map[2][5] = new Case(2, 5, "eau");
@@ -34,18 +34,18 @@ public class Plateau {
 		}
 		
 		/**
-		 * Définir la case occupée par un pion.
-		 * @param endroit, la case à occuper
+		 * DÃ©finir la case occupÃ©e par un pion.
+		 * @param endroit, la case Ã  occuper
 		 */
 		public void occuperLaCase(Case endroit) {
 			this.map[endroit.getCoordX()][endroit.getCoordY()].setPionPresent(true);
 		}
 			
 		/**
-		 * Définir la case libre.
-		 * @param endroit, la case à libérer
+		 * DÃ©finir la case libre.
+		 * @param endroit, la case Ã  libÃ©rer
 		 */
-		public void libérerLaCase(Case endroit) {
+		public void libÃ©rerLaCase(Case endroit) {
 			this.map[endroit.getCoordX()][endroit.getCoordY()].setPionPresent(false);
 		}	
 		
@@ -59,7 +59,7 @@ public class Plateau {
 				distance = x - caseOrigine.getCoordX();
 			}
 			else {
-				distance = 0; // gestion erreur déplacement non linéaire
+				distance = 0; // gestion erreur dÃ©placement non linÃ©aire
 			}
 			return distance;
 		}
@@ -71,7 +71,7 @@ public class Plateau {
 		}
 		
 		/**
-		 * Déplace un pion d'une case à une autre selon sa capacité de déplacement.
+		 * DÃ©place un pion d'une case Ã  une autre selon sa capacitÃ© de dÃ©placement.
 		 * @param caseDepart
 		 * @param caseArrivee
 		 */
@@ -79,7 +79,7 @@ public class Plateau {
 			int distance = this.calculerDistance(pion.getPosition(), x, y);
 			if (distance == 0) {
 				//ERROR
-				System.err.println("Vous êtes déjà sur cette case");
+				System.err.println("Vous Ãªtes dÃ©jÃ  sur cette case");
 			}
 			else if (distance <= pion.getUnite().getDeplace()) {
 				if (map[x][y].getPionPresent()) {
@@ -91,7 +91,7 @@ public class Plateau {
 			}
 			else {
 				//ERROR
-				System.err.println("déplacement non autorisé");
+				System.err.println("dÃ©placement non autorisÃ©");
 			}
 		}
 		

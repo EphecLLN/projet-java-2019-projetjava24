@@ -25,12 +25,12 @@ public class StrategoConsole {
 		switch (yn) {
 		case "y": System.out.println("Nouvelle partie"); break;
 		case "n": System.out.println("Aurevoir"); break;
-		default: System.out.println("Entrée non valide"); break;
+		default: System.out.println("EntrÃ©e non valide"); break;
 		}
 	}
 	
 	public void nouveauJoueur(int x) {
-		System.out.println("Création du joueur " + x);
+		System.out.println("CrÃ©ation du joueur " + x);
 	}
 	
 	public String demanderNom() {
@@ -47,7 +47,7 @@ public class StrategoConsole {
 		switch (yn) {
 		case "rouge": couleur = Color.RED; break;
 		case "bleu": couleur = Color.BLUE; break;
-		default: System.out.println("Entrée non valide");
+		default: System.out.println("EntrÃ©e non valide");
 		}
 		return couleur;
 	}
@@ -59,7 +59,7 @@ public class StrategoConsole {
 	
 	
 	public void introAffichageReserve() {
-		System.out.println(" ---- Réserve du joueur ----");
+		System.out.println(" ---- RÃ©serve du joueur ----");
 	}
 	
 	public void afficherReservePion(String unite, int compteur) {
@@ -79,25 +79,25 @@ public class StrategoConsole {
 	
 	public int demanderPionX() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Sur quelle colonne est le pion à déplacer ?");
+		System.out.println("Sur quelle colonne est le pion Ã  dÃ©placer ?");
 		return scan.nextInt();
 	}
 	
 	public int demanderPionY() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Sur quelle ligne est le pion à déplacer ?");
+		System.out.println("Sur quelle ligne est le pion Ã  dÃ©placer ?");
 		return scan.nextInt();
 	}
 	
 	public String achatOuDeplacement() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Voulez vous acheter une unité ou vous déplacer ?");
+		System.out.println("Voulez vous acheter une unitÃ© ou vous dÃ©placer ?");
 		return scan.nextLine();
 	}
 	
 	public String acheterPion() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Quelle unité voulez vous acheter ?");
+		System.out.println("Quelle unitÃ© voulez vous acheter ?");
 		return scan.nextLine();
 	}
 }

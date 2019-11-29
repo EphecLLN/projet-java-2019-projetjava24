@@ -14,6 +14,7 @@ public class Joueur {
 	private String pseudo;
 	private Color couleur;
 	private int solde;
+	private ArrayList<Pion> enJeu;
 	private ArrayList<Pion> reserve;
 	private ArrayList<Pion> cimetiere;
 	
@@ -42,6 +43,9 @@ public class Joueur {
 	public ArrayList<Pion> getCimetiere(){
 		return this.cimetiere;
 	}
+	public ArrayList<Pion> getEnJeu(){
+		return this.enJeu;
+	}
 	
 	//setters
 	public void setPseudo(String pseudo) {
@@ -58,6 +62,9 @@ public class Joueur {
 	}
 	public void setCimetiere(ArrayList<Pion> cimetiere) {
 		this.cimetiere = cimetiere;
+	}
+	public void setEnJeu(ArrayList<Pion> enJeu) {
+		this.enJeu = enJeu;
 	}
 	
 	public String toString() {

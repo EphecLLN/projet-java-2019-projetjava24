@@ -36,9 +36,9 @@ public class StrategoController {
 		console.afficherReservePion("Bombe", joueur1.compteurReserve(joueur1.getReserve(), "Bombe"));
 		console.afficherReservePion("Espion", joueur1.compteurReserve(joueur1.getReserve(), "Espion"));
 		console.afficherReservePion("Saboteur", joueur1.compteurReserve(joueur1.getReserve(), "Saboteur"));
-		console.afficherReservePion("Général", joueur1.compteurReserve(joueur1.getReserve(), "Général"));
+		console.afficherReservePion("Gï¿½nï¿½ral", joueur1.compteurReserve(joueur1.getReserve(), "Gï¿½nï¿½ral"));
 		console.afficherReservePion("Char d'assaut", joueur1.compteurReserve(joueur1.getReserve(), "Char d'assaut"));
-		console.afficherReservePion("Démineur", joueur1.compteurReserve(joueur1.getReserve(), "Démineur"));
+		console.afficherReservePion("Dï¿½mineur", joueur1.compteurReserve(joueur1.getReserve(), "Dï¿½mineur"));
 		console.afficherReservePion("Caporal", joueur1.compteurReserve(joueur1.getReserve(), "Caporal"));
 		console.afficherReservePion("Eclaireur", joueur1.compteurReserve(joueur1.getReserve(), "Eclaireur"));
 	}
@@ -75,4 +75,3 @@ public class StrategoController {
 		plateau.deplacer(plateau.pionsEnJeu.get(plateau.map[xDepart][yDepart]), xArrivee, yArrivee);
 	}
 }
-
