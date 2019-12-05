@@ -45,7 +45,7 @@ public class Plateau {
 		 * Définir la case libre.
 		 * @param endroit, la case à libérer
 		 */
-		public void libérerLaCase(Case endroit) {
+		public void libererLaCase(Case endroit) {
 			this.map[endroit.getCoordX()][endroit.getCoordY()].setPionPresent(false);
 		}	
 		

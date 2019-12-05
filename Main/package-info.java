@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author amaur
- *
- */
-package Main;

@@ -3,6 +3,9 @@ package model;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  * 
  * @author Crenier Amaury
@@ -11,25 +14,25 @@ import java.util.ArrayList;
 
 public class Joueur {
 	
-	private String pseudo;
+	private StringProperty pseudo;
 	private Color couleur;
-	private int solde;
+	private IntegerProperty solde;
 	private ArrayList<Pion> enJeu;
 	private ArrayList<Pion> reserve;
 	private ArrayList<Pion> cimetiere;
 	
 	//constructeur
 	public Joueur(String pseudo, Color couleur) {
-		this.pseudo = pseudo;
+		this.pseudo.set(pseudo);
 		reserve = new ArrayList<Pion>();
-		solde = 0;
+		solde.set(0);
 		this.couleur = couleur;
 		cimetiere = new ArrayList<Pion>();
 	}
 	
 	//getters
 	public String getPseudo() {
-		return this.pseudo;
+		return this.pseudo.getValue();
 	}
 	public Color getCouleur() {
 		return this.couleur;
@@ -38,7 +41,7 @@ public class Joueur {
 		return this.reserve;
 	}
 	public int getSolde() {
-		return this.solde;
+		return this.solde.getValue();
 	}
 	public ArrayList<Pion> getCimetiere(){
 		return this.cimetiere;
@@ -49,7 +52,7 @@ public class Joueur {
 	
 	//setters
 	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
+		this.pseudo.set(pseudo);;
 	}
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
@@ -58,7 +61,7 @@ public class Joueur {
 		this.reserve = reserve;
 	}
 	public void setSolde(int solde) {
-		this.solde = solde;
+		this.solde.set(solde);;
 	}
 	public void setCimetiere(ArrayList<Pion> cimetiere) {
 		this.cimetiere = cimetiere;
@@ -73,7 +76,7 @@ public class Joueur {
 			couleurStr = "rouge";
 		}
 		else couleurStr = "bleu";
-		return pseudo + ", " + couleurStr + ", solde en banque: " + solde + " pièces.";
+		return pseudo.getValue() + ", " + couleurStr + ", solde en banque: " + solde.getValue() + " pièces.";
 	}
 	
 	//méthodes
@@ -83,10 +86,10 @@ public class Joueur {
 	 * @param unite, le type d'unité
 	 */
 	public void acheterUnite(Unite unite) {
-		if (solde >= unite.getDeplace()) {
+		if (solde.getValue() >= unite.getDeplace()) {
 		Pion newPion = new Pion(unite);
 		reserve.add(newPion);
-		solde -= unite.getPrice();
+		solde.set(solde.getValue() - unite.getPrice());
 		}
 		else {
 			System.out.println("Solde insuffisant!");
@@ -97,9 +100,17 @@ public class Joueur {
 	 * Augmentation du solde de 25.
 	 */
 	public void genererSoldeParTour() {
-		solde += 25;
+		this.setSolde(solde.getValue() + 25);
 	}
 	
+	
+	public IntegerProperty soldeProperty() {
+		return solde;
+	}
+	
+	public StringProperty pseudoProperty() {
+		return pseudo;
+	}
 	/**
 	 * Permet de savoir si le joeur est prêt à jouer car il n'a pas de pions en réserve.
 	 * @return true, si la réserve est égale à zéro (vide)

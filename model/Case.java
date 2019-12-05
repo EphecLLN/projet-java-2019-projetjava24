@@ -1,9 +1,11 @@
  package model;
 
+import javafx.beans.property.IntegerProperty;
+
 public class Case {
 		
-		private int coordX;
-		private int coordY;
+		private IntegerProperty coordX;
+		private IntegerProperty coordY;
 		private boolean pionPresent;
 		private String typeCase;
 		
@@ -15,15 +17,15 @@ public class Case {
 		 */
 		public Case(int coordX, int coordY, String typeCase) {
 			
-			this.coordX = coordX;
-			this.coordY = coordY;
+			this.coordX.set(coordX);
+			this.coordY.set(coordY);
 			this.typeCase = typeCase;
 			this.pionPresent = false;
 		}
 		
 		public Case() {
-			this.coordX = -1;
-			this.coordY = -1;
+			this.coordX.set(-1);
+			this.coordY.set(-1);
 			this.typeCase = "Default Case";
 			this.pionPresent = false;
 		}
@@ -31,19 +33,19 @@ public class Case {
 		
 			
 		public int getCoordX() {
-			return coordX;
+			return coordX.getValue();
 		}
 
 		public void setCoordX(int coordX) {
-			this.coordX = coordX;
+			this.coordX.set(coordX);
 		}
 			
 		public int getCoordY() {
-			return coordY;
+			return coordY.getValue();
 		}
 			
 		public void setCoordY(int coordY) {
-			this.coordY = coordY;
+			this.coordY.set(coordY);;
 		}
 			
 		public boolean getPionPresent() {
@@ -57,4 +59,15 @@ public class Case {
 		public String getTypeCase() {
 			return typeCase;
 		}		
+		
+		public IntegerProperty coordXProperty() {
+			return coordX;
+		}
+		
+		public IntegerProperty coordYProperty() {
+			return coordY;
+		}
+		
+		
+		
 }

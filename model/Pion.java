@@ -1,30 +1,31 @@
 package model;
 
+import javafx.beans.property.ObjectProperty;
 
 public class Pion {
 
-private Unite unite;
-private Case position;
+private ObjectProperty<Unite> unite;
+private ObjectProperty<Case> position;
 
 	public Pion(Unite unite) {
-		this.unite = unite;
-		this.position = new Case();	
+		this.unite.set(unite);
+		this.position.set(new Case());
 	}
 	
 	public Unite getUnite() {
-		return unite;
+		return unite.getValue();
 	}
 
 	public void setUnite(Unite unite) {
-		this.unite = unite;
+		this.unite.set(unite);;
 	}
 	
 	public Case getPosition() {
-		return position;
+		return position.getValue();
 	}
 	
 	public void setPosition(Case endroit) {
-		this.position = endroit;
+		this.position.set(endroit);
 	}
 
 	/**
@@ -36,11 +37,11 @@ private Case position;
 	public Pion combattre(Pion defenseur) {
 		Pion pionGagnant = null;
 		
-		switch(defenseur.unite) {
+		switch(defenseur.unite.getValue()) {
 		case DRAPEAU: this.aGagne();
 			break;
 		case BOMBE:
-			if (this.unite == Unite.DEMINEUR) {
+			if (this.unite.getValue() == Unite.DEMINEUR) {
 				pionGagnant = this;
 			}
 			else {
@@ -48,7 +49,7 @@ private Case position;
 			}
 			
 		case TANK:
-			if (this.unite == Unite.SABOTEUR) {
+			if (this.unite.getValue() == Unite.SABOTEUR) {
 				pionGagnant =  this;
 			}
 			else {
@@ -56,7 +57,7 @@ private Case position;
 			}
 			
 		case GENERAL:
-			if (this.unite == Unite.ESPION) {
+			if (this.unite.getValue() == Unite.ESPION) {
 				pionGagnant = this;
 			}
 			else {
@@ -64,7 +65,7 @@ private Case position;
 			}
 			//si le Pion ne correspond pas au caractéristique ci-dessus
 			default:
-				if (this.unite.getGrade() >= defenseur.unite.getGrade()) {
+				if (this.unite.getValue().getGrade() >= defenseur.unite.getValue().getGrade()) {
 					pionGagnant = this;
 			}
 			else {
