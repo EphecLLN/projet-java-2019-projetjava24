@@ -100,4 +100,31 @@ public class Plateau {
 			joueur.getCimetiere().add(perdant);
 			this.placerPion(gagnant, endroit);
 		}
+	
+	
+	/**
+		 * Copie les attributs de chaque case du plateau de jeu dans un flux de sortie
+		 * @param outputStream le flux de sortie
+		 */
+		public void write(DataOutputStream outputStream) {
+			//écrit chaque case du plateau
+			for(int i = 0; i < 10; i++) {
+				for(int j = 0; j < 10; j++) {
+					map[i][j].write(outputStream);		
+				}
+			}
+		}
+		
+		/**
+		 * Lit chaque case du plateau de jeu et récupère tous leurs attributs à partir d'un flux d'entrée
+		 * @param inputStream le flux d'entrée
+		 */
+		public void read(DataInputStream inputStream) {
+			//écrit chaque case du plateau
+			for(int i = 0; i < 10; i++) {
+				for(int j = 0; j < 10; j++) {
+					map[i][j].read(inputStream);		
+				}
+			}
+		}
 }
