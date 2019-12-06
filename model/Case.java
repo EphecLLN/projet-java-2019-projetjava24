@@ -11,8 +11,8 @@ public class Case {
 		
 		/**
 		 * Constructeur
-		 * @param coordX, coordonn�e X de la case sur le plateau de jeu
-		 * @param coordY, coordonn�e Y de la case sur le plateau de jeu
+		 * @param coordX, coordonnée X de la case sur le plateau de jeu
+		 * @param coordY, coordonnée Y de la case sur le plateau de jeu
 		 * @param typeCase, type de la Case: terrain ou eau
 		 */
 		public Case(int coordX, int coordY, String typeCase) {
@@ -69,5 +69,42 @@ public class Case {
 		}
 		
 		
+		/**
+		 * Copie les attributs de la case dans le flux de sortie
+		 * @param outputStream le flux de sortie
+		 */
+		public void write(DataOutputStream outputStream) {
+			try {
+				//si le pion présent n'est pas true, on écrit vrai suivi des informations du pion
+				//sinon on écrit false
+				if(pionPresent != false) {
+					outputStream.writeBoolean(true);
+				}
+				else
+					outputStream.writeBoolean(false);
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
+		/**
+		 * Lit la case et récupère tous ses attributs à partir d'un flux d'entrée
+		 * @param inputStream le flux d'entrée
+		 */
+		public void read(DataInputStream inputStream) {
+			//lit et récupère le pion présent (s'il y en a un)
+			try {
+				boolean bool = inputStream.readBoolean();
+
+				if (bool) {
+					pionPresent = true;
+					//pionPresent.read(inputStream);
+				}
+				else 
+					pionPresent = false;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
 }
