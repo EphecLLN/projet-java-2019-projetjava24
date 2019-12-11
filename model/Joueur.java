@@ -1,10 +1,13 @@
 package model;
 
-import java.awt.Color;
+
 import java.util.ArrayList;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.paint.Color;
 
 /**
  * 
@@ -12,11 +15,12 @@ import javafx.beans.property.StringProperty;
  *
  */
 
+
 public class Joueur {
 	
-	private StringProperty pseudo;
+	private StringProperty pseudo = new SimpleStringProperty();
 	private Color couleur;
-	private IntegerProperty solde;
+	private IntegerProperty solde = new SimpleIntegerProperty();
 	private ArrayList<Pion> enJeu;
 	private ArrayList<Pion> reserve;
 	private ArrayList<Pion> cimetiere;
@@ -25,7 +29,7 @@ public class Joueur {
 	public Joueur(String pseudo, Color couleur) {
 		this.pseudo.set(pseudo);
 		reserve = new ArrayList<Pion>();
-		solde.set(0);
+		solde.set(1000);
 		this.couleur = couleur;
 		cimetiere = new ArrayList<Pion>();
 	}

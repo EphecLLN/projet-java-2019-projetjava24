@@ -1,11 +1,12 @@
 package model;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 public class Pion {
 
-private ObjectProperty<Unite> unite;
-private ObjectProperty<Case> position;
+private ObjectProperty<Unite> unite = new SimpleObjectProperty<Unite>();
+private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
 
 	public Pion(Unite unite) {
 		this.unite.set(unite);

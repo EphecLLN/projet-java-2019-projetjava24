@@ -3,7 +3,7 @@ package controler;
 import view.PlateauConsole;
 import view.StrategoConsole;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 
 public class StrategoController {
 	
