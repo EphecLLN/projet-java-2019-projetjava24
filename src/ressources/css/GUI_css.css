@@ -1,0 +1,88 @@
+#fond{
+	-fx-background-image:url(background.jpg);
+	-fx-background-position:center;
+}
+
+#player{
+	-fx-text-fill: white;
+	-fx-font-family: Verdana;
+	-fx-font-size:18;
+}
+
+#plateau{
+	-fx-background-image:url(terrain.jpg);
+	-fx-background-position:center;
+
+}
+
+.button{
+	-fx-background-color:#c49c48;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:#a27f34;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+}
+
+.button:hover{
+	-fx-background-color:#a27f34;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:white;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+}
+
+.label{
+	-fx-text-fill: white;
+	-fx-font-family: Verdana;
+	-fx-font-size:12;
+}
+
+.color-picker{
+	-fx-background-color:#c49c48;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:#a27f34;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+}
+
+.text-field{
+	-fx-background-color:white;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:#c49c48;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+	-fx-padding:5;
+	-fx-text-fill:#c49c48;
+}
+
+.text-area{
+	-fx-background-color:white;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:#c49c48;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+	-fx-padding:5;
+	-fx-text-fill:#c49c48;
+}
+
+.list-view{
+	-fx-background-color:white;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:#c49c48;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+}
+
+.list-view > .list-item{
+	-fx-background-color:#c49c48;
+	-fx-background-radius:10,10,10,10;
+	-fx-border-color:#a27f34;
+	-fx-border-radius:10,10,10,10;
+	-fx-border-width:2;
+}
+
+.circle{
+	-fx-fill:white;
+}
+
+
