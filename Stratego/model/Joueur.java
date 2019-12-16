@@ -3,10 +3,6 @@ package model;
 
 import java.util.ArrayList;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.paint.Color;
 
 /**
@@ -15,28 +11,26 @@ import javafx.scene.paint.Color;
  *
  */
 
-
 public class Joueur {
 	
-	private StringProperty pseudo = new SimpleStringProperty();
+	private String pseudo;
 	private Color couleur;
-	private IntegerProperty solde = new SimpleIntegerProperty();
-	private ArrayList<Pion> enJeu;
+	private int solde;
 	private ArrayList<Pion> reserve;
 	private ArrayList<Pion> cimetiere;
 	
 	//constructeur
-	public Joueur(String pseudo, Color couleur) {
-		this.pseudo.set(pseudo);
+	public Joueur(String pseudo, Color color) {
+		this.pseudo = pseudo;
 		reserve = new ArrayList<Pion>();
-		solde.set(1000);
-		this.couleur = couleur;
+		solde = 0;
+		this.couleur = color;
 		cimetiere = new ArrayList<Pion>();
 	}
 	
 	//getters
 	public String getPseudo() {
-		return this.pseudo.getValue();
+		return this.pseudo;
 	}
 	public Color getCouleur() {
 		return this.couleur;
@@ -45,18 +39,15 @@ public class Joueur {
 		return this.reserve;
 	}
 	public int getSolde() {
-		return this.solde.getValue();
+		return this.solde;
 	}
-	public ArrayList<Pion> getCimetiere(){
+	public ArrayList<Pion> getCimetiere() {
 		return this.cimetiere;
-	}
-	public ArrayList<Pion> getEnJeu(){
-		return this.enJeu;
 	}
 	
 	//setters
 	public void setPseudo(String pseudo) {
-		this.pseudo.set(pseudo);;
+		this.pseudo = pseudo;
 	}
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
@@ -65,22 +56,14 @@ public class Joueur {
 		this.reserve = reserve;
 	}
 	public void setSolde(int solde) {
-		this.solde.set(solde);;
+		this.solde = solde;
 	}
 	public void setCimetiere(ArrayList<Pion> cimetiere) {
 		this.cimetiere = cimetiere;
 	}
-	public void setEnJeu(ArrayList<Pion> enJeu) {
-		this.enJeu = enJeu;
-	}
 	
 	public String toString() {
-		String couleurStr = "";
-		if (couleur == Color.RED) {
-			couleurStr = "rouge";
-		}
-		else couleurStr = "bleu";
-		return pseudo.getValue() + ", " + couleurStr + ", solde en banque: " + solde.getValue() + " pièces.";
+		return pseudo + " est le joueur " + couleur + ", solde en banque: " + solde + " pièces.";
 	}
 	
 	//méthodes
@@ -90,10 +73,10 @@ public class Joueur {
 	 * @param unite, le type d'unité
 	 */
 	public void acheterUnite(Unite unite) {
-		if (solde.getValue() >= unite.getDeplace()) {
-		Pion newPion = new Pion(unite);
+		if (solde >= unite.getDeplace()) {
+		Pion newPion = new Pion(unite, this.couleur);
 		reserve.add(newPion);
-		solde.set(solde.getValue() - unite.getPrice());
+		solde -= unite.getPrice();
 		}
 		else {
 			System.out.println("Solde insuffisant!");
@@ -104,17 +87,9 @@ public class Joueur {
 	 * Augmentation du solde de 25.
 	 */
 	public void genererSoldeParTour() {
-		this.setSolde(solde.getValue() + 25);
+		solde += 25;
 	}
 	
-	
-	public IntegerProperty soldeProperty() {
-		return solde;
-	}
-	
-	public StringProperty pseudoProperty() {
-		return pseudo;
-	}
 	/**
 	 * Permet de savoir si le joeur est prêt à jouer car il n'a pas de pions en réserve.
 	 * @return true, si la réserve est égale à zéro (vide)
@@ -127,22 +102,23 @@ public class Joueur {
 	 * Ajoute les 20 pions de départ à la réserve.
 	 */
 	public void initReserveDepart() {
-		reserve.add(new Pion(Unite.DRAPEAU));
+		reserve.clear();
+		reserve.add(new Pion(Unite.DRAPEAU, this.couleur));
 		for(int i = 1; i <= 3; i ++) {
-			reserve.add(new Pion(Unite.BOMBE));
+			reserve.add(new Pion(Unite.BOMBE, this.couleur));
 		}
-		reserve.add(new Pion(Unite.SABOTEUR));
-		reserve.add(new Pion(Unite.GENERAL));
-		reserve.add(new Pion(Unite.TANK));
-		reserve.add(new Pion(Unite.ESPION));
+		reserve.add(new Pion(Unite.SABOTEUR, this.couleur));
+		reserve.add(new Pion(Unite.GENERAL, this.couleur));
+		reserve.add(new Pion(Unite.TANK, this.couleur));
+		reserve.add(new Pion(Unite.ESPION, this.couleur));
 		for(int i = 1; i <= 3; i ++) {
-			reserve.add(new Pion(Unite.DEMINEUR));
+			reserve.add(new Pion(Unite.DEMINEUR, this.couleur));
 		}
 		for(int i = 1; i <= 5; i ++) {
-			reserve.add(new Pion(Unite.ECLAIREUR));
+			reserve.add(new Pion(Unite.ECLAIREUR, this.couleur));
 		}
 		for(int i = 1; i <= 5; i ++) {
-			reserve.add(new Pion(Unite.CAPORAL));
+			reserve.add(new Pion(Unite.CAPORAL, this.couleur));
 		}
 	}
 	

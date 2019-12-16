@@ -1,32 +1,33 @@
 package model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.paint.Color;
 
 public class Pion {
 
-private ObjectProperty<Unite> unite = new SimpleObjectProperty<Unite>();
-private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
+private Unite unite;
+private Case position;
+private Color couleur;
 
-	public Pion(Unite unite) {
-		this.unite.set(unite);
-		this.position.set(new Case());
+	public Pion(Unite unite, Color couleur) {
+		this.unite = unite;
+		this.position = new Case();
+		this.couleur = couleur;
 	}
 	
 	public Unite getUnite() {
-		return unite.getValue();
+		return unite;
 	}
 
 	public void setUnite(Unite unite) {
-		this.unite.set(unite);;
+		this.unite = unite;
 	}
 	
 	public Case getPosition() {
-		return position.getValue();
+		return position;
 	}
 	
 	public void setPosition(Case endroit) {
-		this.position.set(endroit);
+		this.position = endroit;
 	}
 
 	/**
@@ -38,11 +39,11 @@ private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
 	public Pion combattre(Pion defenseur) {
 		Pion pionGagnant = null;
 		
-		switch(defenseur.unite.getValue()) {
+		switch(defenseur.unite) {
 		case DRAPEAU: this.aGagne();
 			break;
 		case BOMBE:
-			if (this.unite.getValue() == Unite.DEMINEUR) {
+			if (this.unite == Unite.DEMINEUR) {
 				pionGagnant = this;
 			}
 			else {
@@ -50,7 +51,7 @@ private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
 			}
 			
 		case TANK:
-			if (this.unite.getValue() == Unite.SABOTEUR) {
+			if (this.unite == Unite.SABOTEUR) {
 				pionGagnant =  this;
 			}
 			else {
@@ -58,7 +59,7 @@ private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
 			}
 			
 		case GENERAL:
-			if (this.unite.getValue() == Unite.ESPION) {
+			if (this.unite == Unite.ESPION) {
 				pionGagnant = this;
 			}
 			else {
@@ -66,7 +67,7 @@ private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
 			}
 			//si le Pion ne correspond pas au caractéristique ci-dessus
 			default:
-				if (this.unite.getValue().getGrade() >= defenseur.unite.getValue().getGrade()) {
+				if (this.unite.getGrade() >= defenseur.unite.getGrade()) {
 					pionGagnant = this;
 			}
 			else {
@@ -81,6 +82,10 @@ private ObjectProperty<Case> position =new SimpleObjectProperty<Case>();
 	
 	public void aGagne() {
 		
+	}
+
+	public Color getCouleur() {
+		return couleur;
 	}
 }
 	

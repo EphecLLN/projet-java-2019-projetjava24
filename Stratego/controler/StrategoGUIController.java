@@ -1,33 +1,17 @@
-package src;
+package controler;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Spinner;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import model.Case;
 import model.Joueur;
@@ -72,75 +56,9 @@ public class StrategoGUIController {
 	
 	private Unite u;
 	
-	private ObjectProperty<Unite> uProperty = new ObjectProperty<Unite>() {
-
-		@Override
-		public void bind(ObservableValue<? extends Unite> arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public boolean isBound() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public void unbind() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public Object getBean() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public String getName() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void addListener(ChangeListener<? super Unite> arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void removeListener(ChangeListener<? super Unite> arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void addListener(InvalidationListener arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void removeListener(InvalidationListener arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public Unite get() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void set(Unite arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-	};
 	
+
+		
 	//partie se Déplacer
 	@FXML
 	private Spinner<Integer> deplaceSelect;
@@ -159,12 +77,7 @@ public class StrategoGUIController {
 	//pions 
 	@FXML 
 	private GridPane terrain;
-	@FXML
-	private TableView<Unite> reserve;
-	@FXML
-	private TableColumn<Unite, String> reserveUnite;
 	
-	private ObservableList<Unite> enReserve = FXCollections.observableArrayList();
 	
 	
 	private Group soldatGUI;
@@ -191,10 +104,6 @@ public class StrategoGUIController {
 		//reserveUnite.setCellValueFactory(e -> );
 		
 
-	}
-	
-	public ObservableList<Unite> getEnReserve(){
-		return enReserve;
 	}
 	
 	
@@ -259,18 +168,7 @@ public class StrategoGUIController {
 	
 	}
 	
-	public void creerPion(Unite u,int x, int y) {
-		//partie model
-		Pion soldat = new Pion(u);
-		Case c = new Case();
-		c.setCoordX(x);
-		c.setCoordY(y);
-		p.placerPion(soldat, c);
-		
-		//partie GUI
-		terrain.add(new Label(soldat.getUnite().getName()), x, y);
-		
-	}
+	
 	
 	
 	

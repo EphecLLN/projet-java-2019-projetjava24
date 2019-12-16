@@ -2,6 +2,7 @@ package src;
 
 import java.io.IOException;
 
+import controler.StrategoGUIController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,7 +25,7 @@ public class MainStrategoApp extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainStrategoApp.class.getResource("Stratego_fxml.fxml"));
+            loader.setLocation(MainStrategoApp.class.getResource("../view/Stratego_fxml.fxml"));
             VBox rootLayout = (VBox) loader.load();
             StrategoGUIController vueCtrl = loader.getController();
             vueCtrl.setModel(j);

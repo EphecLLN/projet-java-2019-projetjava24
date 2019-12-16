@@ -5,10 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -18,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.StrategoGUIController">
+<VBox id="background" prefHeight="400.0" prefWidth="600.0" stylesheets="@../image/Stratego_css.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.StrategoGUIController">
    <children>
       <HBox prefHeight="299.0" prefWidth="600.0">
          <children>
@@ -27,7 +24,7 @@
                   <FlowPane prefHeight="43.0" prefWidth="134.0">
                      <children>
                         <Circle fx:id="colorTag" fill="DODGERBLUE" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="pseudoTag" prefHeight="17.0" prefWidth="95.0" text="Joueur" />
+                        <Label id="player" fx:id="pseudoTag" prefHeight="17.0" prefWidth="95.0" text="Joueur" />
                      </children>
                   </FlowPane>
                   <FlowPane prefHeight="26.0" prefWidth="134.0">
@@ -36,19 +33,9 @@
                         <TextField fx:id="solde" prefHeight="25.0" prefWidth="97.0" />
                      </children>
                   </FlowPane>
-                  <ToolBar prefHeight="40.0" prefWidth="200.0">
-                    <items>
-                      <Button mnemonicParsing="false" text="Placer" />
-                    </items>
-                  </ToolBar>
-                  <TableView fx:id="reserve" prefHeight="187.0" prefWidth="145.0">
-                    <columns>
-                      <TableColumn fx:id="reserveUnite" minWidth="-Infinity" prefWidth="150.0" text="Réserve" />
-                    </columns>
-                  </TableView>
                </children>
             </VBox>
-            <GridPane fx:id="terrain" prefHeight="289.0" prefWidth="400.0">
+            <GridPane id="terrain" fx:id="terrain" gridLinesVisible="true" prefHeight="289.0" prefWidth="400.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -88,7 +75,7 @@
                   <FlowPane prefHeight="17.0" prefWidth="153.0">
                      <children>
                         <Label fx:id="soldeUnite" prefHeight="17.0" prefWidth="98.0" text="Prix" />
-                        <Button fx:id="acheter" mnemonicParsing="false" text="acheter" />
+                        <Button id="acheter" fx:id="acheter" mnemonicParsing="false" text="acheter" />
                      </children>
                   </FlowPane>
                </children>

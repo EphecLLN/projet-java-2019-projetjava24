@@ -2,15 +2,15 @@ package model;
 
 public enum Unite {
 	
-	DRAPEAU("Drapeau",0,0,0,"drapeau.png"),
-	BOMBE("Bombe",8,0,100,"bombe.png"),
-	DEMINEUR("Démineur",1,3,160,"demineur.png"),
-	ECLAIREUR("Eclaireur",3,5,100,"eclaireur.png"),
-	GENERAL("Général",6,3,700,"general.png"),
-	ESPION("Espion",4,3,500,"espion.png"),
-	CAPORAL("Caporal",5,2,360,"caporal.png"),
-	SABOTEUR("Saboteur",2,2,500,"saboteur.png"),
-	TANK("Char d'assaut",7,1,1000,"tank.png");
+	DRAPEAU("Drapeau",0,0,0,"../image/drapeau.png"),
+	BOMBE("Bombe",8,0,100,"../image/bombe.png"),
+	DEMINEUR("Démineur",1,3,160,"../image/demineur.png"),
+	ECLAIREUR("Eclaireur",3,5,100,"../image/eclaireur.png"),
+	GENERAL("Général",6,3,700,"../image/general.png"),
+	ESPION("Espion",4,3,500,"../image/espion.png"),
+	CAPORAL("Caporal",5,2,360,"../image/caporal.png"),
+	SABOTEUR("Saboteur",2,2,500,"../image/saboteur.png"),
+	TANK("Char d'assaut",7,1,1000,"../image/tank.png");
 	
 	private String nom,url;
 	
