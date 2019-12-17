@@ -1,0 +1,18 @@
+#plateau {
+    -fx-background-image: url("../images/herbe.jpg");
+}
+
+.button {
+    -fx-background-color: #b4f1ff;
+}
+
+#fond {
+    -fx-background-image: url("../images/waterloo.jpg");
+}
+
+.choiceBox {
+    -fx-background-color: #b4f1ff;
+    -fx-border-radius: 25px;
+    -fx-box-shadow: black;
+    -fx-box-shadow: initial;
+}
